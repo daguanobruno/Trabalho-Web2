@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <html lang="en" class="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        Arrumar o Banco
+
+
+        <title>Trabalho Web2</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="pricing.css" rel="stylesheet">
+      <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+    </head>
+
+    <body>
+
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Publicação de Audio</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/cadastrarAudio">Cadastrar</a>
+        <a class="p-2 text-dark" href="/listar">Listar</a>
+    
+
+      </nav>
+      <a class="btn btn-outline-primary" href="/">Sair</a>
+    </div>
+
+
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Audio</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < audio.length; i++) { %>
+            <tr>
+              <td><%= i + 1%></td>
+              <td><strong><%= audio[i].titulo %></strong></td>
+              <td><%= audio[i].descricao %></td>
+                <td>
+                    
+               <% if(files){ %>
+                    <div class="card card-body mb-3">
+                       <audio width="400" height="240" controls>
+                          <source src="listar/<%= files[i].filename %>" type="audio/mp3">
+                        </audio>
+                </div>
+                  <% } else { %>
+                    <p>No files to show</p>
+                    <% } %>                    
+
+                <td>
+                <a href="/edit/<%= audio[i]._id %>" class="btn btn-info">
+                  Alterar
+                </a>
+              </td>
+              <td> 
+                <form method="POST" action="/deletar/<%= files[i] %>">
+                        <button class="btn btn-danger btn-block mt-4">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="../../assets/js/vendor/popper.min.js"></script>
+      <script src="../../dist/js/bootstrap.min.js"></script>
+      <script src="../../assets/js/vendor/holder.min.js"></script>
+      <script>
+        Holder.addTheme('thumb', {
+          bg: '#55595c',
+          fg: '#eceeef',
+          text: 'Thumbnail'
+        });
+      </script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Tradutor"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugerir uma tradução melhor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+    
+
+  <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

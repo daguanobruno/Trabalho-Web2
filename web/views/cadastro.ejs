@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trabalho Web2</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+</head>
+
+<body>  
+  <div class="dropdown-menu"></div>
+  <script type="text/javascript">
+      function validar(){
+        var nome = formuser.nome.value;
+        var sobrenome = formuser.sobrenome.value;
+        var email = formuser.email.value;
+        var senha1 = formuser.senha1.value;        
+        var senha2 = formuser.senha2.value;
+
+        if(nome == ""){
+          alert('Preencha o campo nome.');
+          formuser.nome.focus();
+          return false;
+        }
+
+         if(sobrenome == ""){
+          alert('Preencha o campo sobrenome.');
+          formuser.sobrenome.focus();
+          return false;
+        }
+        
+        
+        if(email == "" ){
+          alert('Preencha o campo E-mail.');
+          formuser.email.focus();
+          return false;
+        }
+        
+        if(senha1 == "" || senha1.length <= 5){
+          alert('Preencha o campo senha com minimo 6 caracteres');
+          formuser.senha1.focus();
+          return false;
+        }
+
+        if(senha1 != senha2){
+          alert('As senhas são diferentes');
+          formuser.senha1.focus();
+          return false;
+        }
+
+        else{
+           alert('Usuario cadastrado com sucesso');
+           return true;
+        }
+      }
+
+    </script>
+    <form name="formuser" class="px-4 py-3" method="post" action="/cadastrar">
+    <div class="form-group">
+      <label for="exampleDropdownFormName">Nome</label>
+      <input class="form-control" id="nome" name="nome" type="text">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormLastName">Sobrenome</label>
+      <input class="form-control" id="sobrenome" name="sobrenome" type="text">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormEmail1">Email</label>
+      <input class="form-control" id="email" name="email" type="email" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormPassword1">Senha</label>
+      <input class="form-control" id="senha1" name="senha1" type="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormPassword2">Confirmar Senha</label>
+      <input class="form-control" id="senha2" name="senha2" type="password" placeholder="Password">
+    </div>
+    <div class="form-check"></div>
+    <button class="btn btn-primary" type="submit" onclick="return validar()">Cadastrar</button>
+  </form>
+  <div class="dropdown-divider"></div><a class="dropdown-item" href="/">Já possui cadastro? Faça o seu login!</a>
+</body>
+
+</html>
